@@ -11,10 +11,10 @@ export default function Home() {
     <div>
       {/* Hero Section */}
       <AnimatedSection className="section" style={{ backgroundColor: "var(--background)", padding: "10rem 0 6rem 0" }}>
-        <div className="container grid grid-cols-2 gap-8" style={{ alignItems: "center" }}>
+        <div className="container grid grid-cols-2 gap-8" style={{ alignItems: "center", position: "relative" }}>
 
           {/* Left Column: Text Content */}
-          <div className="flex flex-col hero-reveal" style={{ alignItems: "flex-start" }}>
+          <div className="flex flex-col hero-reveal" style={{ alignItems: "flex-start", position: "relative", zIndex: 20 }}>
             <div className="neo-border" style={{
               backgroundColor: "var(--accent-yellow)",
               color: "#1a1a1a",
@@ -39,14 +39,14 @@ export default function Home() {
               <span style={{ color: "var(--accent-blue)" }}>| AI/ML & Data Science Enthusiast</span>
             </h2>
 
-            <div className="flex gap-4" style={{ flexWrap: "wrap" }}>
+            <div className="flex gap-4" style={{ flexWrap: "wrap", position: "relative", zIndex: 30 }}>
               <NeoButton href="#projects" variant="primary">View My Work</NeoButton>
               <NeoButton href="https://mail.google.com/mail/?view=cm&fs=1&to=bhegadeparas5@gmail.com" variant="secondary" target="_blank" rel="noopener noreferrer">Contact Me</NeoButton>
             </div>
           </div>
 
           {/* Right Column: Profile Image */}
-          <div className="flex hero-image-reveal" style={{ justifyContent: "center", alignItems: "center" }}>
+          <div className="flex hero-image-reveal" style={{ justifyContent: "center", alignItems: "center", position: "relative", zIndex: 5 }}>
             <div className="hero-image-container" style={{ position: "relative", width: "100%", maxWidth: "380px", aspectRatio: "1 / 1", marginTop: "60px" }}>
               {/* Offset Shadow */}
               <div style={{
@@ -67,28 +67,31 @@ export default function Home() {
                 backgroundColor: "var(--surface)",
                 zIndex: 1,
               }}>
-                {/* Clipping container: height 200% prevents clipping top, overflow hidden clips sides and bottom */}
+                {/* The "Pop-out" Clipping Logic:
+                    We use a container that is positioned absolutely but with a HUGE top padding 
+                    to allow the head to pop out, but overflow: hidden to clip the bottom. 
+                */}
                 <div style={{
                   position: "absolute",
                   bottom: 0,
                   left: 0,
                   width: "100%",
-                  height: "200%",
-                  overflow: "hidden"
+                  height: "150%", // Taller than box to allow pop-out
+                  overflow: "hidden",
+                  pointerEvents: "none",
+                  display: "flex",
+                  alignItems: "flex-end"
                 }}>
-                  {/* The image is centered and cleanly cut off at the bottom and sides */}
                   <Image
                     src="/pfp.png"
                     alt="Paras Bhegade"
                     width={540}
                     height={600}
                     style={{
-                      position: "absolute",
-                      bottom: "-35px",
-                      left: "50%",
-                      transform: "translateX(-50%)",
+                      width: "100%",
+                      height: "auto",
+                      marginBottom: "-35px", // Clip bottom
                       objectFit: "contain",
-                      zIndex: 2,
                     }}
                     priority
                   />
@@ -101,7 +104,8 @@ export default function Home() {
       </AnimatedSection>
 
       {/* About Section */}
-      <AnimatedSection id="about" className="section" style={{ backgroundColor: "var(--background)" }}>
+      <AnimatedSection id="about" className="section" style={{ backgroundColor: "var(--background)", scrollMarginTop: "100px" }}>
+
         <div className="container">
           <div className="grid grid-cols-2 gap-8" style={{ alignItems: "center" }}>
             <div>
@@ -128,7 +132,7 @@ export default function Home() {
       </AnimatedSection>
 
       {/* Skills Section */}
-      <AnimatedSection id="skills" className="section" style={{ backgroundColor: "var(--surface)", borderTop: "3px solid var(--border-color)", borderBottom: "3px solid var(--border-color)" }}>
+      <AnimatedSection id="skills" className="section" style={{ backgroundColor: "var(--surface)", borderTop: "3px solid var(--border-color)", borderBottom: "3px solid var(--border-color)", scrollMarginTop: "100px" }}>
         <div className="container">
           <h2 style={{ fontSize: "3rem", textTransform: "uppercase", textAlign: "center", marginBottom: "3rem" }}>Technical Arsenal</h2>
 
@@ -147,7 +151,7 @@ export default function Home() {
       </AnimatedSection>
 
       {/* Experience Section */}
-      <AnimatedSection id="experience" className="section" style={{ backgroundColor: "var(--background)" }}>
+      <AnimatedSection id="experience" className="section" style={{ backgroundColor: "var(--background)", scrollMarginTop: "100px" }}>
         <div className="container">
           <h2 style={{ fontSize: "3rem", textTransform: "uppercase", marginBottom: "3rem" }}>Experience</h2>
 
@@ -185,7 +189,7 @@ export default function Home() {
       </AnimatedSection>
 
       {/* Projects Highlights Section */}
-      <AnimatedSection id="projects" className="section" style={{ backgroundColor: "var(--surface-alt)", borderTop: "3px solid var(--border-color)" }}>
+      <AnimatedSection id="projects" className="section" style={{ backgroundColor: "var(--surface-alt)", borderTop: "3px solid var(--border-color)", scrollMarginTop: "100px" }}>
         <div className="container">
           <div className="flex flex-col-mobile justify-between align-center gap-4" style={{ marginBottom: "3rem", alignItems: "center", textAlign: "center" }}>
             <h2 style={{ fontSize: "3rem", textTransform: "uppercase", margin: 0 }}>Featured Projects</h2>
