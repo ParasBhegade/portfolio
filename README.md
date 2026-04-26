@@ -2,8 +2,6 @@
 
 A modern, high-performance personal portfolio built with **Next.js** and styled with a **Neo-Brutalist** aesthetic. This portfolio showcases my work in Data Science, AI/ML, and Web Development.
 
-![Portfolio Preview](public/pfp.png) *(Note: Add a real screenshot here later!)*
-
 ## ✨ Key Features
 
 - **Neo-Brutalist Design**: High contrast, bold typography, and sharp shadows for a premium, modern feel.
