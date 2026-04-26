@@ -251,6 +251,21 @@ p {
   animation-delay: 0.3s;
 }
 
+.hero-image-container {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 1 / 1;
+  margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+  .hero-image-container {
+    max-width: 280px !important;
+    margin-top: 8rem !important;
+  }
+}
+
 /* Responsive Utilities */
 .hero-title {
   font-size: 6.5rem;

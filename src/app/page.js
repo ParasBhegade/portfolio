@@ -47,7 +47,7 @@ export default function Home() {
 
           {/* Right Column: Profile Image */}
           <div className="flex hero-image-reveal" style={{ justifyContent: "center", alignItems: "center", position: "relative", zIndex: 5 }}>
-            <div className="hero-image-container" style={{ position: "relative", width: "100%", maxWidth: "380px", aspectRatio: "1 / 1", marginTop: "60px" }}>
+            <div className="hero-image-container">
               {/* Offset Shadow */}
               <div style={{
                 position: "absolute",
@@ -76,11 +76,9 @@ export default function Home() {
                   bottom: 0,
                   left: 0,
                   width: "100%",
-                  height: "150%", // Taller than box to allow pop-out
+                  height: "200%", // Plenty of space for the head to pop out
                   overflow: "hidden",
-                  pointerEvents: "none",
-                  display: "flex",
-                  alignItems: "flex-end"
+                  pointerEvents: "none"
                 }}>
                   <Image
                     src="/pfp.png"
@@ -88,9 +86,12 @@ export default function Home() {
                     width={540}
                     height={600}
                     style={{
-                      width: "100%",
-                      height: "auto",
-                      marginBottom: "-35px", // Clip bottom
+                      position: "absolute",
+                      bottom: "-35px",
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      width: "auto",
+                      height: "100%", // Fit exactly to the box height
                       objectFit: "contain",
                     }}
                     priority
