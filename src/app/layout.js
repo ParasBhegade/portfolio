@@ -15,7 +15,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Paras Bhegade - AI Software Engineer",
+  title: "Paras Bhegade's Portfolio",
   description: "Portfolio of Paras Bhegade, a Software Engineer specializing in Artificial Intelligence, Machine Learning, and Web Development.",
 };
 
