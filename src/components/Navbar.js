@@ -4,13 +4,40 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "./ThemeProvider";
 import { FaSun, FaMoon } from "react-icons/fa";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const pathname = usePathname();
   const isHome = pathname === '/';
+  const [activeSection, setActiveSection] = useState("");
 
-  const handleScroll = (e, id) => {
+  useEffect(() => {
+    if (!isHome) return;
+
+    const handleScroll = () => {
+      const sections = ['about', 'skills', 'experience'];
+      let current = "";
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 150 && rect.bottom >= 150) {
+            current = section;
+            break;
+          }
+        }
+      }
+      setActiveSection(current);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check on mount
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isHome]);
+
+  const handleScrollTo = (e, id) => {
     if (window.location.pathname === '/') {
       e.preventDefault();
       const element = document.getElementById(id);
@@ -19,6 +46,13 @@ export default function Navbar() {
       }
     }
   };
+
+  const getLinkStyle = (id) => ({
+    fontWeight: 800,
+    color: activeSection === id ? "var(--accent-blue)" : "inherit",
+    textDecoration: activeSection === id ? "underline" : "none",
+    transition: "color 0.3s"
+  });
 
   return (
     <nav style={{ position: "fixed", top: 0, left: 0, width: "100%", zIndex: 50, padding: "1.5rem 0", borderBottom: "3px solid var(--border-color)", backgroundColor: "var(--surface)" }}>
@@ -30,9 +64,9 @@ export default function Navbar() {
         </Link>
         <div className="flex nav-links align-center gap-4">
           {!isHome && <Link href="/" style={{ fontWeight: 800 }}>HOME</Link>}
-          <a href="/#about" onClick={(e) => handleScroll(e, 'about')} style={{ fontWeight: 800 }}>ABOUT</a>
-          <a href="/#skills" onClick={(e) => handleScroll(e, 'skills')} style={{ fontWeight: 800 }}>SKILLS</a>
-          <a href="/#experience" onClick={(e) => handleScroll(e, 'experience')} style={{ fontWeight: 800 }}>EXPERIENCE</a>
+          <a href="/#about" onClick={(e) => handleScrollTo(e, 'about')} style={getLinkStyle('about')}>ABOUT</a>
+          <a href="/#skills" onClick={(e) => handleScrollTo(e, 'skills')} style={getLinkStyle('skills')}>SKILLS</a>
+          <a href="/#experience" onClick={(e) => handleScrollTo(e, 'experience')} style={getLinkStyle('experience')}>EXPERIENCE</a>
           <Link href="/gallery" style={{ fontWeight: 800 }}>GALLERY</Link>
           <button
             onClick={toggleTheme}

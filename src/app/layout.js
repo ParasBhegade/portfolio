@@ -21,7 +21,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <body className={`${spaceGrotesk.variable} ${inter.variable} antialiased`} style={{ position: "relative" }}>
         <ThemeProvider>
           <div className="flex flex-col min-h-screen relative" style={{ zIndex: 1 }}>

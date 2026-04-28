@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <AnimatedSection className="section" style={{ backgroundColor: "var(--background)", padding: "10rem 0 6rem 0" }}>
+      <AnimatedSection className="section" style={{ background: "linear-gradient(180deg, var(--background) 0%, var(--surface-alt) 100%)", padding: "6rem 0 4rem 0" }}>
         <div className="container grid grid-cols-2 gap-8" style={{ alignItems: "center", position: "relative" }}>
 
           {/* Left Column: Text Content */}
@@ -34,13 +34,16 @@ export default function Home() {
 
             <div style={{ width: "120px", height: "10px", backgroundColor: "var(--accent-red)", marginBottom: "2rem", border: "2px solid var(--border-color)" }}></div>
 
-            <h2 style={{ color: "var(--text-main)", fontSize: "1.75rem", fontWeight: 700, marginBottom: "2.5rem", lineHeight: 1.4 }}>
-              Data Science Intern<br />
-              <span style={{ color: "var(--accent-blue)" }}>| AI/ML & Data Science Enthusiast</span>
+            <h2 style={{ color: "var(--text-main)", fontSize: "1.5rem", fontWeight: 700, marginBottom: "1rem", lineHeight: 1.4 }}>
+              Data Science & AI/ML Intern<br />
+              <span className="hero-subtitle" style={{ color: "var(--accent-blue)" }}>building intelligent systems and data-driven solutions</span>
             </h2>
+            <p style={{ color: "var(--secondary)", fontSize: "1.1rem", marginBottom: "2rem", maxWidth: "90%" }}>
+              Leveraging machine learning, data analysis, and automation to build actionable, data-driven solutions.
+            </p>
 
             <div className="flex gap-4" style={{ flexWrap: "wrap", position: "relative", zIndex: 30 }}>
-              <NeoButton href="#projects" variant="primary">View My Work</NeoButton>
+              <NeoButton href="#projects" variant="primary">View Projects</NeoButton>
               <NeoButton href="https://mail.google.com/mail/?view=cm&fs=1&to=bhegadeparas5@gmail.com" variant="secondary" target="_blank" rel="noopener noreferrer">Contact Me</NeoButton>
             </div>
           </div>
@@ -110,13 +113,13 @@ export default function Home() {
         <div className="container">
           <div className="grid grid-cols-2 gap-8" style={{ alignItems: "center" }}>
             <div>
-              <h2 style={{ fontSize: "3rem", textTransform: "uppercase" }}>Career Objective</h2>
+              <h2 style={{ fontSize: "3rem", textTransform: "uppercase" }}>About Me</h2>
               <div style={{ width: "100px", height: "8px", backgroundColor: "var(--accent-red)", marginBottom: "2rem", border: "2px solid var(--border-color)" }}></div>
               <p style={{ fontSize: "1.125rem", lineHeight: 1.8 }}>
-                I am a Computer Science undergraduate specializing in Artificial Intelligence, with hands-on experience in web development, machine learning, and data science. I enjoy solving real-world problems through technology and working with data to extract meaningful insights.
+                I am a B.Tech CSE (AI) undergraduate deeply interested in Data Science and Machine Learning. I thrive on solving complex, real-world problems by building intelligent, data-driven systems.
               </p>
               <p style={{ fontSize: "1.125rem", lineHeight: 1.8 }}>
-                I am currently seeking an internship where I can contribute my skills in AI Automation, AI/ML, and Data Science while learning from industry professionals.
+                My goal is to secure a Machine Learning or Data Engineer role where I can leverage my expertise in AI and data pipelines to create impactful technological solutions.
               </p>
             </div>
             <div className="neo-card" style={{ backgroundColor: "var(--surface-alt)" }}>
@@ -125,7 +128,7 @@ export default function Home() {
               <p style={{ fontWeight: "bold", color: "var(--secondary)" }}>Nutan College of Engineering and Research, Pune</p>
               <div className="flex justify-between" style={{ marginTop: "1rem" }}>
                 <span className="tag" style={{ margin: 0 }}>Pass out: 2027</span>
-                <span className="tag" style={{ margin: 0 }}>CGPA: 7.5</span>
+                <span className="tag" style={{ margin: 0 }}>CGPA: 8</span>
               </div>
             </div>
           </div>
@@ -137,15 +140,18 @@ export default function Home() {
         <div className="container">
           <h2 style={{ fontSize: "3rem", textTransform: "uppercase", textAlign: "center", marginBottom: "3rem" }}>Technical Arsenal</h2>
 
-          <div className="grid grid-cols-3 gap-8">
-            <NeoCard title="Programming" tags={["C", "Java", "Python", "HTML", "CSS", "JavaScript"]}>
-              <p>Core programming languages used for building scalable applications and algorithms.</p>
+          <div className="grid grid-cols-2 gap-8">
+            <NeoCard title="Programming" tags={["C", "Java", "Python", "JavaScript"]}>
+              <p>Building the logic and core architecture for scalable software solutions.</p>
             </NeoCard>
-            <NeoCard title="Data Science & ML" tags={["Data Analysis", "Data Cleaning", "EDA", "Machine Learning"]}>
-              <p>Extracting insights, handling real-world data preprocessing, and building predictive models.</p>
+            <NeoCard title="Data Science" tags={["Pandas", "NumPy", "Matplotlib"]}>
+              <p>Processing data, performing statistical analysis, and visualizing insights.</p>
             </NeoCard>
-            <NeoCard title="Frameworks & Tools" tags={["Flask", "NumPy", "Pandas", "Git", "VS Code", "Jupyter"]}>
-              <p>Modern libraries and environments utilized for development and data manipulation.</p>
+            <NeoCard title="ML & AI" tags={["Scikit-learn", "TensorFlow"]}>
+              <p>Developing predictive models, deep learning networks, and computer vision pipelines.</p>
+            </NeoCard>
+            <NeoCard title="Tools" tags={["Git", "Jupyter", "VS Code"]}>
+              <p>Essential developer environments and version control systems for team collaboration.</p>
             </NeoCard>
           </div>
         </div>
@@ -173,15 +179,16 @@ export default function Home() {
             <div className="neo-card" style={{ borderLeft: "8px solid var(--accent-red)" }}>
               <div className="flex justify-between align-center" style={{ marginBottom: "1rem" }}>
                 <h3 style={{ margin: 0 }}>GruhSetu – Housing Society Management</h3>
+                <span className="tag" style={{ margin: 0, backgroundColor: "var(--accent-yellow)", color: "#1a1a1a" }}>Startup Experience</span>
               </div>
-              <p style={{ marginBottom: "1.5rem", fontSize: "1.1rem" }}>Developed official website, managed email communication & digital operations, and supported branding and online presence.</p>
+              <p style={{ marginBottom: "1.5rem", fontSize: "1.1rem" }}>Led digital transformation initiatives by developing the official platform, automating email communications, and streamlining daily operations. Significantly enhanced online branding and optimized internal data workflows.</p>
               <a href="https://gruhsetuhousingsocietymanagement.com/" target="_blank" rel="noopener noreferrer" className="flex" style={{ alignItems: "center", gap: "0.5rem", display: "inline-flex", color: "var(--accent-blue)", fontWeight: "bold", marginBottom: "1.5rem", textDecoration: "none" }}>
-                Follow Link <FaArrowRight style={{ transform: "rotate(-45deg)", fontSize: "0.9rem" }} />
+                View Platform <FaArrowRight style={{ transform: "rotate(-45deg)", fontSize: "0.9rem" }} />
               </a>
               <div className="flex" style={{ flexWrap: "wrap" }}>
-                <TechTag name="HTML" />
-                <TechTag name="CSS" />
+                <TechTag name="Web Automation" />
                 <TechTag name="JavaScript" />
+                <TechTag name="Data Operations" />
                 <TechTag name="APIs" />
               </div>
             </div>
@@ -215,9 +222,14 @@ export default function Home() {
           <div className="contact-marquee-wrap">
             <p className="contact-marquee-label">— Let&apos;s Work Together —</p>
           </div>
-          <div className="contact-hero-text">
-            <span className="contact-highlight">Got an idea?</span>
-            <span className="contact-highlight contact-highlight--outline">Let&apos;s build it.</span>
+          <div className="contact-hero-text" style={{ flexDirection: "column", gap: "0.5rem" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
+              <span className="contact-highlight">Got an idea?</span>
+              <span className="contact-highlight contact-highlight--outline">Let&apos;s build it.</span>
+            </div>
+            <p style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--accent-blue)", marginTop: "1rem", maxWidth: "800px", lineHeight: 1.4 }}>
+              Open to internships and full-time roles in Data Science & AI/ML.
+            </p>
           </div>
           <div className="contact-divider" />
 
