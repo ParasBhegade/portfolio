@@ -1,8 +1,8 @@
-# Paras Bhegade | Portfolio 🚀
+# Paras Bhegade | Portfolio 
 
 A modern, high-performance personal portfolio built with **Next.js** and styled with a **Neo-Brutalist** aesthetic. This portfolio showcases my work in Data Science, AI/ML, and Web Development.
 
-## ✨ Key Features
+##  Key Features
 
 - **Neo-Brutalist Design**: High contrast, bold typography, and sharp shadows for a premium, modern feel.
 - **Dark & Light Mode**: Seamless theme switching with persistent state.
@@ -11,7 +11,7 @@ A modern, high-performance personal portfolio built with **Next.js** and styled 
 - **Fully Responsive**: Optimized for everything from massive desktop monitors to mobile phones.
 - **Zero-Hydration Visibility**: Custom CSS animations replace heavy JS libraries to ensure content is visible instantly on any network.
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Core**: Next.js 15+ (App Router)
 - **Logic**: React, JavaScript
@@ -19,7 +19,7 @@ A modern, high-performance personal portfolio built with **Next.js** and styled 
 - **Icons**: React Icons (Fa, Si)
 - **Fonts**: Space Grotesk (Google Fonts)
 
-## 📁 Project Structure
+##  Project Structure
 
 ```text
 ├── src/
@@ -32,7 +32,7 @@ A modern, high-performance personal portfolio built with **Next.js** and styled 
 └── README.md           # You are here!
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 1. **Clone the repository**:
    ```bash
@@ -54,7 +54,7 @@ A modern, high-performance personal portfolio built with **Next.js** and styled 
    npm run build
    ```
 
-## 📧 Contact
+##  Contact
 
 - **Email**: [bhegadeparas5@gmail.com](mailto:bhegadeparas5@gmail.com)
 - **LinkedIn**: [paras-bhegade](https://www.linkedin.com/in/paras-bhegade/)

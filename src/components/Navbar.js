@@ -16,7 +16,7 @@ export default function Navbar() {
     if (!isHome) return;
 
     const handleScroll = () => {
-      const sections = ['about', 'skills', 'experience'];
+      const sections = ['about', 'skills', 'experience', 'resume'];
       let current = "";
       
       for (const section of sections) {
@@ -67,6 +67,7 @@ export default function Navbar() {
           <a href="/#about" onClick={(e) => handleScrollTo(e, 'about')} style={getLinkStyle('about')}>ABOUT</a>
           <a href="/#skills" onClick={(e) => handleScrollTo(e, 'skills')} style={getLinkStyle('skills')}>SKILLS</a>
           <a href="/#experience" onClick={(e) => handleScrollTo(e, 'experience')} style={getLinkStyle('experience')}>EXPERIENCE</a>
+          <a href="/#resume" onClick={(e) => handleScrollTo(e, 'resume')} style={getLinkStyle('resume')}>RESUME</a>
           <Link href="/gallery" style={{ fontWeight: 800 }}>GALLERY</Link>
           <button
             onClick={toggleTheme}

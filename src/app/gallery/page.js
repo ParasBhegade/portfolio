@@ -64,7 +64,7 @@ export default function Gallery() {
             {/* Project 3 */}
             <div className="neo-border neo-shadow gallery-card">
               <div className="gallery-card-header" style={{ backgroundColor: "var(--accent-blue)" }}>
-                <h3 className="gallery-card-title" style={{ color: "#f5f0e8" }}>AI Talent Research<br />Dashboard</h3>
+                <h3 className="gallery-card-title" style={{ color: "#f5f0e8" }}>AI Talent Research &amp;<br />Recommendation Engine</h3>
               </div>
               <div className="gallery-card-body">
                 <div className="flex flex-col gap-4" style={{ marginBottom: "1.5rem" }}>
