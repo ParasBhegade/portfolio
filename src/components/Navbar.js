@@ -4,75 +4,121 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "./ThemeProvider";
 import { FaSun, FaMoon } from "react-icons/fa";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const pathname = usePathname();
-  const isHome = pathname === '/';
+  const isHome = pathname === "/";
   const [activeSection, setActiveSection] = useState("");
+  const [hidden, setHidden] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const lastScroll = useRef(0);
 
   useEffect(() => {
-    if (!isHome) return;
-
     const handleScroll = () => {
-      const sections = ['about', 'skills', 'experience', 'resume'];
-      let current = "";
-      
+      const current = window.scrollY;
+      // Hide on scroll down, show on scroll up (only after 200px)
+      if (current > 200) {
+        setHidden(current > lastScroll.current && current - lastScroll.current > 5);
+      } else {
+        setHidden(false);
+      }
+      lastScroll.current = current;
+
+      // Active section detection
+      if (!isHome) return;
+      const sections = ["about", "skills", "experience", "projects", "resume", "contact"];
+      let found = "";
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
           if (rect.top <= 150 && rect.bottom >= 150) {
-            current = section;
+            found = section;
             break;
           }
         }
       }
-      setActiveSection(current);
+      setActiveSection(found);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check on mount
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [isHome]);
 
   const handleScrollTo = (e, id) => {
-    if (window.location.pathname === '/') {
+    if (window.location.pathname === "/") {
       e.preventDefault();
       const element = document.getElementById(id);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
     }
+    setMobileOpen(false);
   };
 
-  const getLinkStyle = (id) => ({
-    fontWeight: 800,
-    color: activeSection === id ? "var(--accent-blue)" : "inherit",
-    textDecoration: activeSection === id ? "underline" : "none",
-    transition: "color 0.3s"
-  });
+  const getLinkClass = (id) =>
+    `nav-link ${activeSection === id ? "nav-link--active" : ""}`;
+
+  const navLinks = (
+    <>
+      {!isHome && (
+        <Link href="/" className="nav-link" onClick={() => setMobileOpen(false)}>
+          HOME
+        </Link>
+      )}
+      <a href="/#about" onClick={(e) => handleScrollTo(e, "about")} className={getLinkClass("about")}>ABOUT</a>
+      <a href="/#skills" onClick={(e) => handleScrollTo(e, "skills")} className={getLinkClass("skills")}>SKILLS</a>
+      <a href="/#experience" onClick={(e) => handleScrollTo(e, "experience")} className={getLinkClass("experience")}>EXPERIENCE</a>
+      <a href="/#resume" onClick={(e) => handleScrollTo(e, "resume")} className={getLinkClass("resume")}>RESUME</a>
+      <Link href="/gallery" className={`nav-link ${pathname === "/gallery" ? "nav-link--active" : ""}`} onClick={() => setMobileOpen(false)}>
+        GALLERY
+      </Link>
+    </>
+  );
 
   return (
-    <nav style={{ position: "fixed", top: 0, left: 0, width: "100%", zIndex: 50, padding: "1.5rem 0", borderBottom: "3px solid var(--border-color)", backgroundColor: "var(--surface)" }}>
+    <nav
+      className={`navbar ${hidden ? "navbar--hidden" : ""}`}
+    >
       <div className="container nav-container flex justify-between align-center">
-        <Link href="/">
-          <div style={{ fontSize: "1.5rem", fontWeight: "bold", fontFamily: "var(--font-space-grotesk)", textTransform: "uppercase" }}>
-            PARAS.DEV
-          </div>
+        <Link href="/" className="nav-logo">
+          PARAS.DEV
         </Link>
+
+        {/* Desktop links */}
         <div className="flex nav-links align-center gap-4">
-          {!isHome && <Link href="/" style={{ fontWeight: 800 }}>HOME</Link>}
-          <a href="/#about" onClick={(e) => handleScrollTo(e, 'about')} style={getLinkStyle('about')}>ABOUT</a>
-          <a href="/#skills" onClick={(e) => handleScrollTo(e, 'skills')} style={getLinkStyle('skills')}>SKILLS</a>
-          <a href="/#experience" onClick={(e) => handleScrollTo(e, 'experience')} style={getLinkStyle('experience')}>EXPERIENCE</a>
-          <a href="/#resume" onClick={(e) => handleScrollTo(e, 'resume')} style={getLinkStyle('resume')}>RESUME</a>
-          <Link href="/gallery" style={{ fontWeight: 800 }}>GALLERY</Link>
+          {navLinks}
           <button
             onClick={toggleTheme}
-            className="neo-btn secondary"
-            style={{ padding: "0.5rem", fontSize: "1.2rem", display: "flex", alignItems: "center", justifyContent: "center", width: "40px", height: "40px" }}
+            className="neo-btn secondary theme-toggle"
+            aria-label="Toggle Theme"
+          >
+            {theme === "light" ? <FaMoon /> : <FaSun />}
+          </button>
+        </div>
+
+        {/* Mobile hamburger */}
+        <button
+          className={`hamburger ${mobileOpen ? "hamburger--open" : ""}`}
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle menu"
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </div>
+
+      {/* Mobile drawer */}
+      <div className={`mobile-drawer ${mobileOpen ? "mobile-drawer--open" : ""}`}>
+        <div className="mobile-drawer-links">
+          {navLinks}
+          <button
+            onClick={() => { toggleTheme(); setMobileOpen(false); }}
+            className="neo-btn secondary theme-toggle"
             aria-label="Toggle Theme"
           >
             {theme === "light" ? <FaMoon /> : <FaSun />}

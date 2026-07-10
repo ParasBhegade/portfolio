@@ -3,39 +3,39 @@ import NeoButton from "@/components/NeoButton";
 import AnimatedSection from "@/components/AnimatedSection";
 import TechTag from "@/components/TechTag";
 import ContactForm from "@/components/ContactForm";
+import AvailabilityBadge from "@/components/AvailabilityBadge";
+import GlowText from "@/components/GlowText";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
+import HeroClient from "@/components/HeroClient";
+import StaggeredCards from "@/components/StaggeredCards";
+import TechMarquee from "@/components/TechMarquee";
+import CountUp from "@/components/CountUp";
+import HeroTypewriter from "@/components/HeroTypewriter";
 
 export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <AnimatedSection className="section" style={{ background: "linear-gradient(180deg, var(--background) 0%, var(--surface-alt) 100%)", padding: "6rem 0 4rem 0" }}>
-        <div className="container grid grid-cols-2 gap-8" style={{ alignItems: "center", position: "relative" }}>
+      <section className="section hero-section" style={{ position: "relative", overflow: "hidden" }}>
+        <HeroClient />
+
+        <div className="container grid grid-cols-2 gap-8" style={{ alignItems: "center", position: "relative", zIndex: 10 }}>
 
           {/* Left Column: Text Content */}
           <div className="flex flex-col hero-reveal" style={{ alignItems: "flex-start", position: "relative", zIndex: 20 }}>
-            <div className="neo-border" style={{
-              backgroundColor: "var(--accent-yellow)",
-              color: "#1a1a1a",
-              padding: "0.25rem 0.75rem",
-              fontWeight: "bold",
-              fontSize: "0.875rem",
-              textTransform: "uppercase",
-              marginBottom: "2rem",
-              boxShadow: "4px 4px 0px 0px var(--shadow-color)"
-            }}>
-              Open for Opportunities
-            </div>
+            <AvailabilityBadge />
 
             <h1 className="hero-title" style={{ color: "var(--text-main)", lineHeight: 0.95, letterSpacing: "-0.03em", marginBottom: "1rem" }}>
-              PARAS<br />BHEGADE
+              <GlowText>PARAS</GlowText><br />
+              <GlowText>BHEGADE</GlowText>
+              <span className="terminal-cursor">_</span>
             </h1>
 
             <div style={{ width: "120px", height: "10px", backgroundColor: "var(--accent-red)", marginBottom: "2rem", border: "2px solid var(--border-color)" }}></div>
 
             <h2 style={{ color: "var(--text-main)", fontSize: "1.5rem", fontWeight: 700, marginBottom: "1rem", lineHeight: 1.4 }}>
-              Data Science & AI/ML Intern<br />
+              <HeroTypewriter /><br />
               <span className="hero-subtitle" style={{ color: "var(--accent-blue)" }}>building intelligent systems and data-driven solutions</span>
             </h2>
             <p style={{ color: "var(--secondary)", fontSize: "1.1rem", marginBottom: "2rem", maxWidth: "90%" }}>
@@ -70,16 +70,12 @@ export default function Home() {
                 backgroundColor: "var(--surface)",
                 zIndex: 1,
               }}>
-                {/* The "Pop-out" Clipping Logic:
-                    We use a container that is positioned absolutely but with a HUGE top padding 
-                    to allow the head to pop out, but overflow: hidden to clip the bottom. 
-                */}
                 <div style={{
                   position: "absolute",
                   bottom: 0,
                   left: 0,
                   width: "100%",
-                  height: "200%", // Plenty of space for the head to pop out
+                  height: "200%",
                   overflow: "hidden",
                   pointerEvents: "none"
                 }}>
@@ -94,7 +90,7 @@ export default function Home() {
                       left: "50%",
                       transform: "translateX(-50%)",
                       width: "auto",
-                      height: "100%", // Fit exactly to the box height
+                      height: "100%",
                       objectFit: "contain",
                     }}
                     priority
@@ -105,11 +101,10 @@ export default function Home() {
           </div>
 
         </div>
-      </AnimatedSection>
+      </section>
 
       {/* About Section */}
       <AnimatedSection id="about" className="section" style={{ backgroundColor: "var(--background)", scrollMarginTop: "100px" }}>
-
         <div className="container">
           <div className="grid grid-cols-2 gap-8" style={{ alignItems: "center" }}>
             <div>
@@ -122,15 +117,17 @@ export default function Home() {
                 My goal is to secure a Machine Learning or Data Engineer role where I can leverage my expertise in AI and data pipelines to create impactful technological solutions.
               </p>
             </div>
-            <div className="neo-card" style={{ backgroundColor: "var(--surface-alt)" }}>
+            <NeoCard tilt={true} style={{ backgroundColor: "var(--surface-alt)" }}>
               <h3 style={{ borderBottom: "3px solid var(--border-color)", paddingBottom: "1rem", marginBottom: "1rem" }}>Education</h3>
-              <h4 style={{ fontSize: "1.25rem", marginBottom: "0.5rem" }}>B.Tech in Computer Science Engineering (AI & ML)</h4>
+              <h4 style={{ fontSize: "1.25rem", marginBottom: "0.5rem" }}>B.Tech in Computer Science Engineering (AI &amp; ML)</h4>
               <p style={{ fontWeight: "bold", color: "var(--secondary)" }}>Nutan College of Engineering and Research, Pune</p>
               <div className="flex justify-between" style={{ marginTop: "1rem" }}>
                 <span className="tag" style={{ margin: 0 }}>Pass out: 2027</span>
-                <span className="tag" style={{ margin: 0 }}>CGPA: 8</span>
+                <span className="tag" style={{ margin: 0 }}>
+                  CGPA: <CountUp target={8} duration={1500} />
+                </span>
               </div>
-            </div>
+            </NeoCard>
           </div>
         </div>
       </AnimatedSection>
@@ -138,9 +135,12 @@ export default function Home() {
       {/* Skills Section */}
       <AnimatedSection id="skills" className="section" style={{ backgroundColor: "var(--surface)", borderTop: "3px solid var(--border-color)", borderBottom: "3px solid var(--border-color)", scrollMarginTop: "100px" }}>
         <div className="container">
-          <h2 style={{ fontSize: "3rem", textTransform: "uppercase", textAlign: "center", marginBottom: "3rem" }}>Technical Arsenal</h2>
+          <h2 style={{ fontSize: "3rem", textTransform: "uppercase", textAlign: "center", marginBottom: "1rem" }}>Technical Arsenal</h2>
+          <p style={{ textAlign: "center", color: "var(--secondary)", marginBottom: "2rem", fontSize: "1.1rem" }}>Technologies I work with daily</p>
 
-          <div className="grid grid-cols-2 gap-8">
+          <TechMarquee />
+
+          <StaggeredCards>
             <NeoCard title="Programming" tags={["C", "Java", "Python", "JavaScript"]}>
               <p>Building the logic and core architecture for scalable software solutions.</p>
             </NeoCard>
@@ -153,7 +153,7 @@ export default function Home() {
             <NeoCard title="Tools" tags={["Git", "Jupyter", "VS Code"]}>
               <p>Essential developer environments and version control systems for team collaboration.</p>
             </NeoCard>
-          </div>
+          </StaggeredCards>
         </div>
       </AnimatedSection>
 
@@ -163,35 +163,41 @@ export default function Home() {
           <h2 style={{ fontSize: "3rem", textTransform: "uppercase", marginBottom: "3rem" }}>Experience</h2>
 
           <div className="flex flex-col gap-8">
-            <div className="neo-card" style={{ borderLeft: "8px solid var(--accent-blue)" }}>
-              <div className="flex justify-between align-center" style={{ marginBottom: "1rem" }}>
-                <h3 style={{ margin: 0 }}>Laxmi Logistics – ERP System</h3>
-                <span className="tag" style={{ margin: 0, backgroundColor: "var(--accent-yellow)", color: "#1a1a1a" }}>Contract Project (₹2,00,000)</span>
+            <AnimatedSection delay={0.1}>
+              <div className="neo-card" style={{ borderLeft: "8px solid var(--accent-blue)" }}>
+                <div className="flex justify-between align-center" style={{ marginBottom: "1rem" }}>
+                  <h3 style={{ margin: 0 }}>Laxmi Logistics – ERP System</h3>
+                  <span className="tag" style={{ margin: 0, backgroundColor: "var(--accent-yellow)", color: "#1a1a1a" }}>
+                    Contract Project (₹<CountUp target={2} duration={1000} />,00,000)
+                  </span>
+                </div>
+                <p style={{ marginBottom: "1.5rem", fontSize: "1.1rem" }}>Built a comprehensive logistics ERP system. Worked on backend logic, APIs, and deployment, applying data-driven approaches for operational insights.</p>
+                <div className="flex" style={{ flexWrap: "wrap" }}>
+                  <TechTag name="Python" />
+                  <TechTag name="Flask / FastAPI" />
+                  <TechTag name="Database" />
+                </div>
               </div>
-              <p style={{ marginBottom: "1.5rem", fontSize: "1.1rem" }}>Built a comprehensive logistics ERP system. Worked on backend logic, APIs, and deployment, applying data-driven approaches for operational insights.</p>
-              <div className="flex" style={{ flexWrap: "wrap" }}>
-                <TechTag name="Python" />
-                <TechTag name="Flask / FastAPI" />
-                <TechTag name="Database" />
-              </div>
-            </div>
+            </AnimatedSection>
 
-            <div className="neo-card" style={{ borderLeft: "8px solid var(--accent-red)" }}>
-              <div className="flex justify-between align-center" style={{ marginBottom: "1rem" }}>
-                <h3 style={{ margin: 0 }}>GruhSetu – Housing Society Management</h3>
-                <span className="tag" style={{ margin: 0, backgroundColor: "var(--accent-yellow)", color: "#1a1a1a" }}>Startup Experience</span>
+            <AnimatedSection delay={0.2}>
+              <div className="neo-card" style={{ borderLeft: "8px solid var(--accent-red)" }}>
+                <div className="flex justify-between align-center" style={{ marginBottom: "1rem" }}>
+                  <h3 style={{ margin: 0 }}>GruhSetu – Housing Society Management</h3>
+                  <span className="tag" style={{ margin: 0, backgroundColor: "var(--accent-yellow)", color: "#1a1a1a" }}>Startup Experience</span>
+                </div>
+                <p style={{ marginBottom: "1.5rem", fontSize: "1.1rem" }}>Led digital transformation initiatives by developing the official platform, automating email communications, and streamlining daily operations. Significantly enhanced online branding and optimized internal data workflows.</p>
+                <a href="https://gruhsetuhousingsocietymanagement.com/" target="_blank" rel="noopener noreferrer" className="flex project-link" style={{ alignItems: "center", gap: "0.5rem", display: "inline-flex", color: "var(--accent-blue)", fontWeight: "bold", marginBottom: "1.5rem", textDecoration: "none" }}>
+                  View Platform <FaArrowRight style={{ transform: "rotate(-45deg)", fontSize: "0.9rem" }} />
+                </a>
+                <div className="flex" style={{ flexWrap: "wrap" }}>
+                  <TechTag name="Web Automation" />
+                  <TechTag name="JavaScript" />
+                  <TechTag name="Data Operations" />
+                  <TechTag name="APIs" />
+                </div>
               </div>
-              <p style={{ marginBottom: "1.5rem", fontSize: "1.1rem" }}>Led digital transformation initiatives by developing the official platform, automating email communications, and streamlining daily operations. Significantly enhanced online branding and optimized internal data workflows.</p>
-              <a href="https://gruhsetuhousingsocietymanagement.com/" target="_blank" rel="noopener noreferrer" className="flex" style={{ alignItems: "center", gap: "0.5rem", display: "inline-flex", color: "var(--accent-blue)", fontWeight: "bold", marginBottom: "1.5rem", textDecoration: "none" }}>
-                View Platform <FaArrowRight style={{ transform: "rotate(-45deg)", fontSize: "0.9rem" }} />
-              </a>
-              <div className="flex" style={{ flexWrap: "wrap" }}>
-                <TechTag name="Web Automation" />
-                <TechTag name="JavaScript" />
-                <TechTag name="Data Operations" />
-                <TechTag name="APIs" />
-              </div>
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </AnimatedSection>
@@ -204,20 +210,20 @@ export default function Home() {
             <NeoButton href="/gallery" variant="primary">View Gallery</NeoButton>
           </div>
 
-          <div className="grid grid-cols-2 gap-8">
+          <StaggeredCards>
             <NeoCard title="AI Talent Research & Recommendation Engine" tags={["Machine Learning", "Data Processing", "AI"]}>
               <p>Developed an AI-based system to analyze user skills, interests, and profiles, providing personalized career path recommendations.</p>
-              <a href="https://github.com/ParasBhegade/Ai-powered-global-talent-engine" target="_blank" rel="noopener noreferrer" className="flex" style={{ alignItems: "center", gap: "0.5rem", display: "inline-flex", color: "var(--accent-blue)", fontWeight: "bold", marginTop: "1rem", textDecoration: "none" }}>
+              <a href="https://github.com/ParasBhegade/Ai-powered-global-talent-engine" target="_blank" rel="noopener noreferrer" className="flex project-link" style={{ alignItems: "center", gap: "0.5rem", display: "inline-flex", color: "var(--accent-blue)", fontWeight: "bold", marginTop: "1rem", textDecoration: "none" }}>
                 View on GitHub <FaArrowRight style={{ transform: "rotate(-45deg)", fontSize: "0.9rem" }} />
               </a>
             </NeoCard>
             <NeoCard title="Industrial Automation Dashboard" tags={["Flask API", "Real-time", "Monitoring"]}>
               <p>Built a real-time machine monitoring dashboard, automating processes with a Flask API and a custom frontend.</p>
-              <a href="https://github.com/ParasBhegade/Industial-automation-dashboard" target="_blank" rel="noopener noreferrer" className="flex" style={{ alignItems: "center", gap: "0.5rem", display: "inline-flex", color: "var(--accent-blue)", fontWeight: "bold", marginTop: "1rem", textDecoration: "none" }}>
+              <a href="https://github.com/ParasBhegade/Industial-automation-dashboard" target="_blank" rel="noopener noreferrer" className="flex project-link" style={{ alignItems: "center", gap: "0.5rem", display: "inline-flex", color: "var(--accent-blue)", fontWeight: "bold", marginTop: "1rem", textDecoration: "none" }}>
                 View on GitHub <FaArrowRight style={{ transform: "rotate(-45deg)", fontSize: "0.9rem" }} />
               </a>
             </NeoCard>
-          </div>
+          </StaggeredCards>
         </div>
       </AnimatedSection>
 
@@ -260,28 +266,28 @@ export default function Home() {
       {/* Contact Section */}
       <AnimatedSection id="contact" className="section contact-section">
         <div className="container">
-
           {/* Header */}
           <div className="contact-marquee-wrap">
             <p className="contact-marquee-label">— Let&apos;s Work Together —</p>
           </div>
           <div className="contact-hero-text" style={{ flexDirection: "column", gap: "0.5rem" }}>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-              <span className="contact-highlight">Got an idea?</span>
-              <span className="contact-highlight contact-highlight--outline">Let&apos;s build it.</span>
+              <h2 className="hero-title" style={{ color: "var(--text-main)", lineHeight: 0.95, letterSpacing: "-0.03em", marginBottom: "0", textTransform: "uppercase" }}>
+                <GlowText>GOT AN IDEA?</GlowText><br />
+                <GlowText>LET&apos;S BUILD IT</GlowText>
+                <span className="terminal-cursor">_</span>
+              </h2>
             </div>
             <p style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--accent-blue)", marginTop: "1rem", maxWidth: "800px", lineHeight: 1.4 }}>
-              Open to internships and full-time roles in Data Science & AI/ML.
+              Open to internships and full-time roles in Data Science &amp; AI/ML.
             </p>
           </div>
           <div className="contact-divider" />
 
           {/* Body: cards + form */}
           <div className="contact-body">
-
             {/* Left: contact info cards */}
             <div className="contact-cards-col">
-
               <div className="contact-card contact-card--yellow">
                 <div className="contact-card-icon-wrap">
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" /></svg>
@@ -317,17 +323,13 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-
             </div>
 
             {/* Right: form */}
             <ContactForm />
-
           </div>
-
         </div>
       </AnimatedSection>
     </div>
   );
 }
-

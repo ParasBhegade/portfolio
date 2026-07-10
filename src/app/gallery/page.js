@@ -1,4 +1,5 @@
 import AnimatedSection from "@/components/AnimatedSection";
+import StaggeredCards from "@/components/StaggeredCards";
 
 export const metadata = {
   title: "Gallery - Paras Bhegade",
@@ -24,68 +25,74 @@ export default function Gallery() {
           <div className="grid grid-cols-1 gap-8">
 
             {/* Project 1 */}
-            <div className="neo-border neo-shadow gallery-card">
-              <div className="gallery-card-header" style={{ backgroundColor: "var(--accent-yellow)" }}>
-                <h3 className="gallery-card-title" style={{ color: "#1a1a1a" }}>Industrial Automation<br />Dashboard</h3>
-              </div>
-              <div className="gallery-card-body">
-                <div className="flex flex-col gap-4" style={{ marginBottom: "1.5rem" }}>
-                  <p style={{ fontSize: "1.125rem", lineHeight: 1.6 }}><strong>Problem:</strong> Lack of real-time visibility into machine status and performance hindered operational efficiency and led to unexpected downtime.</p>
-                  <p style={{ fontSize: "1.125rem", lineHeight: 1.6 }}><strong>Approach:</strong> Built a real-time monitoring dashboard, streaming sensor data through a Flask API to a custom frontend interface for instant analytics.</p>
-                  <p style={{ fontSize: "1.125rem", lineHeight: 1.6 }}><strong>Results:</strong> Automated data collection, enabling instant insights, predicting maintenance needs, and significantly improving factory throughput.</p>
+            <AnimatedSection delay={0.1}>
+              <div className="neo-border neo-shadow gallery-card">
+                <div className="gallery-card-header" style={{ backgroundColor: "var(--accent-yellow)" }}>
+                  <h3 className="gallery-card-title" style={{ color: "#1a1a1a" }}>Industrial Automation<br />Dashboard</h3>
                 </div>
-                <div className="flex gap-4" style={{ flexWrap: "wrap" }}>
-                  <span className="tag">Real-Time Data</span>
-                  <span className="tag">Predictive Maintenance</span>
-                  <span className="tag">Sensor Integration</span>
+                <div className="gallery-card-body">
+                  <div className="flex flex-col gap-4" style={{ marginBottom: "1.5rem" }}>
+                    <p style={{ fontSize: "1.125rem", lineHeight: 1.6 }}><strong>Problem:</strong> Lack of real-time visibility into machine status and performance hindered operational efficiency and led to unexpected downtime.</p>
+                    <p style={{ fontSize: "1.125rem", lineHeight: 1.6 }}><strong>Approach:</strong> Built a real-time monitoring dashboard, streaming sensor data through a Flask API to a custom frontend interface for instant analytics.</p>
+                    <p style={{ fontSize: "1.125rem", lineHeight: 1.6 }}><strong>Results:</strong> Automated data collection, enabling instant insights, predicting maintenance needs, and significantly improving factory throughput.</p>
+                  </div>
+                  <div className="flex gap-4" style={{ flexWrap: "wrap" }}>
+                    <span className="tech-tag tag">Real-Time Data</span>
+                    <span className="tech-tag tag">Predictive Maintenance</span>
+                    <span className="tech-tag tag">Sensor Integration</span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
 
             {/* Project 2 */}
-            <div className="neo-border neo-shadow gallery-card">
-              <div className="gallery-card-header" style={{ backgroundColor: "var(--accent-red)" }}>
-                <h3 className="gallery-card-title" style={{ color: "#1a1a1a" }}>Logistics ERP<br />Dashboard</h3>
-              </div>
-              <div className="gallery-card-body">
-                <div className="flex flex-col gap-4" style={{ marginBottom: "1.5rem" }}>
-                  <p style={{ fontSize: "1.125rem", lineHeight: 1.6 }}><strong>Problem:</strong> Fragmented supply chain data and manual fleet tracking caused inefficiencies and delayed decision-making processes.</p>
-                  <p style={{ fontSize: "1.125rem", lineHeight: 1.6 }}><strong>Approach:</strong> Developed a comprehensive ERP system, applying data-driven backend logic and API integrations to unify global supply chain metrics.</p>
-                  <p style={{ fontSize: "1.125rem", lineHeight: 1.6 }}><strong>Results:</strong> Centralized inventory forecasting and fleet tracking into a single command center, optimizing operational efficiency.</p>
+            <AnimatedSection delay={0.2}>
+              <div className="neo-border neo-shadow gallery-card">
+                <div className="gallery-card-header" style={{ backgroundColor: "var(--accent-red)" }}>
+                  <h3 className="gallery-card-title" style={{ color: "#1a1a1a" }}>Logistics ERP<br />Dashboard</h3>
                 </div>
-                <div className="flex gap-4" style={{ flexWrap: "wrap" }}>
-                  <span className="tag">Supply Chain</span>
-                  <span className="tag">Fleet Tracking</span>
-                  <span className="tag">Command Center</span>
+                <div className="gallery-card-body">
+                  <div className="flex flex-col gap-4" style={{ marginBottom: "1.5rem" }}>
+                    <p style={{ fontSize: "1.125rem", lineHeight: 1.6 }}><strong>Problem:</strong> Fragmented supply chain data and manual fleet tracking caused inefficiencies and delayed decision-making processes.</p>
+                    <p style={{ fontSize: "1.125rem", lineHeight: 1.6 }}><strong>Approach:</strong> Developed a comprehensive ERP system, applying data-driven backend logic and API integrations to unify global supply chain metrics.</p>
+                    <p style={{ fontSize: "1.125rem", lineHeight: 1.6 }}><strong>Results:</strong> Centralized inventory forecasting and fleet tracking into a single command center, optimizing operational efficiency.</p>
+                  </div>
+                  <div className="flex gap-4" style={{ flexWrap: "wrap" }}>
+                    <span className="tech-tag tag">Supply Chain</span>
+                    <span className="tech-tag tag">Fleet Tracking</span>
+                    <span className="tech-tag tag">Command Center</span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
 
             {/* Project 3 */}
-            <div className="neo-border neo-shadow gallery-card">
-              <div className="gallery-card-header" style={{ backgroundColor: "var(--accent-blue)" }}>
-                <h3 className="gallery-card-title" style={{ color: "#f5f0e8" }}>AI Talent Research &amp;<br />Recommendation Engine</h3>
-              </div>
-              <div className="gallery-card-body">
-                <div className="flex flex-col gap-4" style={{ marginBottom: "1.5rem" }}>
-                  <p style={{ fontSize: "1.125rem", lineHeight: 1.6 }}><strong>Problem:</strong> Organizations struggle to match internal talent capabilities with evolving role requirements, leading to skill gaps.</p>
-                  <p style={{ fontSize: "1.125rem", lineHeight: 1.6 }}><strong>Approach:</strong> Utilized NLP and machine learning to analyze user skills and profiles against industry job descriptions.</p>
-                  <p style={{ fontSize: "1.125rem", lineHeight: 1.6 }}><strong>Results:</strong> Provided highly accurate career path recommendations and multidimensional skill mapping to bridge talent gaps.</p>
+            <AnimatedSection delay={0.3}>
+              <div className="neo-border neo-shadow gallery-card">
+                <div className="gallery-card-header" style={{ backgroundColor: "var(--accent-blue)" }}>
+                  <h3 className="gallery-card-title" style={{ color: "#f5f0e8" }}>AI Talent Research &amp;<br />Recommendation Engine</h3>
                 </div>
-                <div className="flex gap-4" style={{ flexWrap: "wrap" }}>
-                  <span className="tag">NLP</span>
-                  <span className="tag">Skill Mapping</span>
-                  <span className="tag">Data Visualization</span>
+                <div className="gallery-card-body">
+                  <div className="flex flex-col gap-4" style={{ marginBottom: "1.5rem" }}>
+                    <p style={{ fontSize: "1.125rem", lineHeight: 1.6 }}><strong>Problem:</strong> Organizations struggle to match internal talent capabilities with evolving role requirements, leading to skill gaps.</p>
+                    <p style={{ fontSize: "1.125rem", lineHeight: 1.6 }}><strong>Approach:</strong> Utilized NLP and machine learning to analyze user skills and profiles against industry job descriptions.</p>
+                    <p style={{ fontSize: "1.125rem", lineHeight: 1.6 }}><strong>Results:</strong> Provided highly accurate career path recommendations and multidimensional skill mapping to bridge talent gaps.</p>
+                  </div>
+                  <div className="flex gap-4" style={{ flexWrap: "wrap" }}>
+                    <span className="tech-tag tag">NLP</span>
+                    <span className="tech-tag tag">Skill Mapping</span>
+                    <span className="tech-tag tag">Data Visualization</span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
 
           </div>
         </div>
       </AnimatedSection>
 
       {/* Coming Soon */}
-      <AnimatedSection className="section" style={{ paddingTop: "2rem", paddingBottom: "6rem" }}>
+      <AnimatedSection className="section" style={{ paddingTop: "2rem", paddingBottom: "6rem" }} delay={0.2}>
         <div className="container">
           <div className="neo-border neo-shadow coming-soon-box">
             <img

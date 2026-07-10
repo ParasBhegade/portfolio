@@ -3,6 +3,10 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ThemeProvider from "@/components/ThemeProvider";
+import ScrollProgress from "@/components/ScrollProgress";
+import CommandPalette from "@/components/CommandPalette";
+import CustomCursor from "@/components/CustomCursor";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -107,7 +111,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
+    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth" data-theme="dark">
       <body className={`${spaceGrotesk.variable} ${inter.variable} antialiased`} style={{ position: "relative" }}>
         {/* JSON-LD Structured Data */}
         <script
@@ -115,6 +119,11 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <ThemeProvider>
+          <ScrollProgress />
+          <CommandPalette />
+          <CustomCursor />
+          <ScrollToTop />
+          <div className="noise-overlay" aria-hidden="true" />
           <div className="flex flex-col min-h-screen relative" style={{ zIndex: 1 }}>
             <Navbar />
             <main className="flex-grow" style={{ paddingTop: "85px" }}>
@@ -127,4 +136,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-
