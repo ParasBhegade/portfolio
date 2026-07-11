@@ -2,8 +2,9 @@
 
 import { useEffect, useRef } from "react";
 import TechTag from "./TechTag";
+import Image from "next/image";
 
-export default function NeoCard({ title, subtitle, description, tags, children, style, tilt = true }) {
+export default function NeoCard({ title, subtitle, description, tags, children, style, tilt = true, imageSrc, imageAlt }) {
   const cardRef = useRef(null);
 
   useEffect(() => {
@@ -49,6 +50,17 @@ export default function NeoCard({ title, subtitle, description, tags, children, 
       style={{ display: "flex", flexDirection: "column", height: "100%", ...style }}
       onMouseMove={handleMouseMove}
     >
+      {imageSrc && (
+        <div style={{ margin: "-2rem -2rem 1.5rem -2rem", borderBottom: "3px solid var(--border-color)", overflow: "hidden" }}>
+          <Image
+            src={imageSrc}
+            alt={imageAlt || title || "Project thumbnail"}
+            width={600}
+            height={340}
+            style={{ width: "100%", height: "auto", display: "block", objectFit: "cover" }}
+          />
+        </div>
+      )}
       {title && <h3 style={{ marginBottom: "0.5rem" }}>{title}</h3>}
       {subtitle && (
         <h4 style={{ marginBottom: "1rem", color: "var(--secondary)" }}>

@@ -3,18 +3,23 @@
 import { useEffect, useRef, useState } from "react";
 
 export default function CountUp({ target, duration = 2000, prefix = "", suffix = "", className = "", style = {} }) {
-  const [count, setCount] = useState(0);
-  const [started, setStarted] = useState(false);
+  const [count, setCount] = useState(target); // SSR: render final value
+  const [hasAnimated, setHasAnimated] = useState(false);
   const ref = useRef(null);
+
+  // On mount, reset to 0 so the animation can play
+  useEffect(() => {
+    setCount(0);
+  }, []);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el || hasAnimated) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !started) {
-          setStarted(true);
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
         }
       },
       { threshold: 0.5 }
@@ -22,10 +27,10 @@ export default function CountUp({ target, duration = 2000, prefix = "", suffix =
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [started]);
+  }, [hasAnimated]);
 
   useEffect(() => {
-    if (!started) return;
+    if (!hasAnimated) return;
 
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (mq.matches) {
@@ -50,7 +55,7 @@ export default function CountUp({ target, duration = 2000, prefix = "", suffix =
 
     raf = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(raf);
-  }, [started, target, duration]);
+  }, [hasAnimated, target, duration]);
 
   return (
     <span ref={ref} className={className} style={style}>

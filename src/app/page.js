@@ -12,6 +12,7 @@ import StaggeredCards from "@/components/StaggeredCards";
 import TechMarquee from "@/components/TechMarquee";
 import CountUp from "@/components/CountUp";
 import HeroTypewriter from "@/components/HeroTypewriter";
+import SkillGroup from "@/components/SkillGroup";
 
 export default function Home() {
   return (
@@ -136,24 +137,13 @@ export default function Home() {
       <AnimatedSection id="skills" className="section" style={{ backgroundColor: "var(--surface)", borderTop: "3px solid var(--border-color)", borderBottom: "3px solid var(--border-color)", scrollMarginTop: "100px" }}>
         <div className="container">
           <h2 style={{ fontSize: "3rem", textTransform: "uppercase", textAlign: "center", marginBottom: "1rem" }}>Technical Arsenal</h2>
-          <p style={{ textAlign: "center", color: "var(--secondary)", marginBottom: "2rem", fontSize: "1.1rem" }}>Technologies I work with daily</p>
+          <p style={{ textAlign: "center", color: "var(--secondary)", marginBottom: "3rem", fontSize: "1.1rem" }}>Technologies I work with daily</p>
 
           <TechMarquee />
 
-          <StaggeredCards>
-            <NeoCard title="Programming" tags={["C", "Java", "Python", "JavaScript"]}>
-              <p>Building the logic and core architecture for scalable software solutions.</p>
-            </NeoCard>
-            <NeoCard title="Data Science" tags={["Pandas", "NumPy", "Matplotlib"]}>
-              <p>Processing data, performing statistical analysis, and visualizing insights.</p>
-            </NeoCard>
-            <NeoCard title="ML & AI" tags={["Scikit-learn", "TensorFlow"]}>
-              <p>Developing predictive models, deep learning networks, and computer vision pipelines.</p>
-            </NeoCard>
-            <NeoCard title="Tools" tags={["Git", "Jupyter", "VS Code"]}>
-              <p>Essential developer environments and version control systems for team collaboration.</p>
-            </NeoCard>
-          </StaggeredCards>
+          <div style={{ marginTop: "3rem" }}>
+            <SkillGroup />
+          </div>
         </div>
       </AnimatedSection>
 
@@ -187,7 +177,7 @@ export default function Home() {
                   <span className="tag" style={{ margin: 0, backgroundColor: "var(--accent-yellow)", color: "#1a1a1a" }}>Startup Experience</span>
                 </div>
                 <p style={{ marginBottom: "1.5rem", fontSize: "1.1rem" }}>Led digital transformation initiatives by developing the official platform, automating email communications, and streamlining daily operations. Significantly enhanced online branding and optimized internal data workflows.</p>
-                <a href="https://gruhsetuhousingsocietymanagement.com/" target="_blank" rel="noopener noreferrer" className="flex project-link" style={{ alignItems: "center", gap: "0.5rem", display: "inline-flex", color: "var(--accent-blue)", fontWeight: "bold", marginBottom: "1.5rem", textDecoration: "none" }}>
+                <a href="https://gruhsetuhousingsocietymanagement.com/" target="_blank" rel="noopener noreferrer" className="flex project-link" style={{ alignItems: "center", gap: "0.5rem", display: "inline-flex", color: "var(--accent-yellow)", fontWeight: "bold", marginBottom: "1.5rem", textDecoration: "none" }}>
                   View Platform <FaArrowRight style={{ transform: "rotate(-45deg)", fontSize: "0.9rem" }} />
                 </a>
                 <div className="flex" style={{ flexWrap: "wrap" }}>
@@ -213,13 +203,13 @@ export default function Home() {
           <StaggeredCards>
             <NeoCard title="AI Talent Research & Recommendation Engine" tags={["Machine Learning", "Data Processing", "AI"]}>
               <p>Developed an AI-based system to analyze user skills, interests, and profiles, providing personalized career path recommendations.</p>
-              <a href="https://github.com/ParasBhegade/Ai-powered-global-talent-engine" target="_blank" rel="noopener noreferrer" className="flex project-link" style={{ alignItems: "center", gap: "0.5rem", display: "inline-flex", color: "var(--accent-blue)", fontWeight: "bold", marginTop: "1rem", textDecoration: "none" }}>
+              <a href="https://github.com/ParasBhegade/Ai-powered-global-talent-engine" target="_blank" rel="noopener noreferrer" className="flex project-link" style={{ alignItems: "center", gap: "0.5rem", display: "inline-flex", color: "var(--accent-yellow)", fontWeight: "bold", marginTop: "1rem", textDecoration: "none" }}>
                 View on GitHub <FaArrowRight style={{ transform: "rotate(-45deg)", fontSize: "0.9rem" }} />
               </a>
             </NeoCard>
             <NeoCard title="Industrial Automation Dashboard" tags={["Flask API", "Real-time", "Monitoring"]}>
               <p>Built a real-time machine monitoring dashboard, automating processes with a Flask API and a custom frontend.</p>
-              <a href="https://github.com/ParasBhegade/Industial-automation-dashboard" target="_blank" rel="noopener noreferrer" className="flex project-link" style={{ alignItems: "center", gap: "0.5rem", display: "inline-flex", color: "var(--accent-blue)", fontWeight: "bold", marginTop: "1rem", textDecoration: "none" }}>
+              <a href="https://github.com/ParasBhegade/Industial-automation-dashboard" target="_blank" rel="noopener noreferrer" className="flex project-link" style={{ alignItems: "center", gap: "0.5rem", display: "inline-flex", color: "var(--accent-yellow)", fontWeight: "bold", marginTop: "1rem", textDecoration: "none" }}>
                 View on GitHub <FaArrowRight style={{ transform: "rotate(-45deg)", fontSize: "0.9rem" }} />
               </a>
             </NeoCard>
