@@ -64,7 +64,7 @@ export const metadata = {
       "Explore the portfolio of Paras Bhegade – projects in AI, Machine Learning, Data Science, and Full-Stack Web Development.",
     images: [
       {
-        url: "/profile.png",
+        url: "/pfp.png",
         width: 800,
         height: 600,
         alt: "Paras Bhegade – Software Engineer",
@@ -76,7 +76,7 @@ export const metadata = {
     title: "Paras Bhegade | Software Engineer – AI, ML & Web Development",
     description:
       "Explore the portfolio of Paras Bhegade – projects in AI, Machine Learning, Data Science, and Full-Stack Web Development.",
-    images: ["/profile.png"],
+    images: ["/pfp.png"],
   },
   alternates: {
     canonical: "https://parasbhegade.me",

@@ -95,6 +95,7 @@ export default function Home() {
                       objectFit: "contain",
                     }}
                     priority
+                    className="profile-float"
                   />
                 </div>
               </div>
@@ -147,6 +148,15 @@ export default function Home() {
         </div>
       </AnimatedSection>
 
+      {/* Quote 1 */}
+      <AnimatedSection>
+        <div className="quote-block">
+          <p className="quote-text">
+            Nothing is True, Everything is Permitted
+          </p>
+        </div>
+      </AnimatedSection>
+
       {/* Experience Section */}
       <AnimatedSection id="experience" className="section" style={{ backgroundColor: "var(--background)", scrollMarginTop: "100px" }}>
         <div className="container">
@@ -154,23 +164,6 @@ export default function Home() {
 
           <div className="flex flex-col gap-8">
             <AnimatedSection delay={0.1}>
-              <div className="neo-card" style={{ borderLeft: "8px solid var(--accent-blue)" }}>
-                <div className="flex justify-between align-center" style={{ marginBottom: "1rem" }}>
-                  <h3 style={{ margin: 0 }}>Laxmi Logistics – ERP System</h3>
-                  <span className="tag" style={{ margin: 0, backgroundColor: "var(--accent-yellow)", color: "#1a1a1a" }}>
-                    Contract Project (₹<CountUp target={2} duration={1000} />,00,000)
-                  </span>
-                </div>
-                <p style={{ marginBottom: "1.5rem", fontSize: "1.1rem" }}>Built a comprehensive logistics ERP system. Worked on backend logic, APIs, and deployment, applying data-driven approaches for operational insights.</p>
-                <div className="flex" style={{ flexWrap: "wrap" }}>
-                  <TechTag name="Python" />
-                  <TechTag name="Flask / FastAPI" />
-                  <TechTag name="Database" />
-                </div>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.2}>
               <div className="neo-card" style={{ borderLeft: "8px solid var(--accent-red)" }}>
                 <div className="flex justify-between align-center" style={{ marginBottom: "1rem" }}>
                   <h3 style={{ margin: 0 }}>GruhSetu – Housing Society Management</h3>
@@ -221,35 +214,56 @@ export default function Home() {
       <AnimatedSection id="resume" className="section" style={{ backgroundColor: "var(--background)", borderTop: "3px solid var(--border-color)", scrollMarginTop: "100px" }}>
         <div className="container" style={{ textAlign: "center" }}>
           <h2 style={{ fontSize: "3rem", textTransform: "uppercase", marginBottom: "1rem" }}>Resume</h2>
-          <div style={{ width: "100px", height: "8px", backgroundColor: "var(--accent-yellow)", margin: "0 auto 2rem auto", border: "2px solid var(--border-color)" }}></div>
-          <p style={{ fontSize: "1.125rem", lineHeight: 1.8, maxWidth: "600px", margin: "0 auto 2.5rem auto", color: "var(--secondary)" }}>
-            A snapshot of my education, skills, experience, and projects — all in one place. Download to know more.
-          </p>
-          <div className="flex gap-4" style={{ justifyContent: "center", flexWrap: "wrap" }}>
-            <a
-              href="/paras-resume.pdf"
-              download
-              className="neo-btn primary"
-              style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", textDecoration: "none" }}
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}>
-                <path d="M5 20h14v-2H5v2zm7-18v12.17l3.59-3.58L17 12l-5 5-5-5 1.41-1.41L12 14.17V2z" />
-              </svg>
-              Download Resume
-            </a>
-            <a
-              href="/paras-resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="neo-btn secondary"
-              style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", textDecoration: "none" }}
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}>
-                <path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
-              </svg>
-              View Resume
-            </a>
+          <div style={{ width: "100px", height: "8px", backgroundColor: "var(--accent-yellow)", margin: "0 auto 3rem auto", border: "2px solid var(--border-color)" }}></div>
+
+          <div className="resume-card">
+            <div className="resume-card-header">
+              <span className="resume-dot resume-dot--red"></span>
+              <span className="resume-dot resume-dot--yellow"></span>
+              <span className="resume-dot resume-dot--green"></span>
+              <span className="resume-card-title">resume.pdf</span>
+            </div>
+            <div className="resume-card-body">
+              <p>
+                A snapshot of my education, skills, experience, and projects — all in one place.
+              </p>
+              <div className="flex gap-4 resume-buttons" style={{ justifyContent: "center", flexWrap: "wrap" }}>
+                <a
+                  href="/Resume/Resume.pdf"
+                  download
+                  className="neo-btn primary"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", textDecoration: "none" }}
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}>
+                    <path d="M5 20h14v-2H5v2zm7-18v12.17l3.59-3.58L17 12l-5 5-5-5 1.41-1.41L12 14.17V2z" />
+                  </svg>
+                  Download
+                </a>
+                <a
+                  href="/Resume/Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="neo-btn secondary"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", textDecoration: "none" }}
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}>
+                    <path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+                  </svg>
+                  View
+                </a>
+              </div>
+            </div>
           </div>
+        </div>
+      </AnimatedSection>
+
+      {/* Quote 2 */}
+      <AnimatedSection>
+        <div className="quote-block">
+          <p className="quote-text">
+            Do not fear the darkness, but welcome its embrace.
+            <span className="quote-author">— Ezio Auditore da Firenze</span>
+          </p>
         </div>
       </AnimatedSection>
 

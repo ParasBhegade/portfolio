@@ -314,8 +314,131 @@ p {
 }
 
 /* ===========================
+   QUOTE BLOCKS
+   =========================== */
+.quote-block {
+  padding: 2.5rem 3rem;
+  text-align: center;
+  border-top: 3px solid var(--border-color);
+  border-bottom: 3px solid var(--border-color);
+  background-color: var(--surface);
+  position: relative;
+}
+
+.quote-text {
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--text-main);
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.quote-text::before {
+  content: '"';
+  font-size: 4rem;
+  font-style: normal;
+  color: var(--accent-yellow);
+  position: absolute;
+  top: -1.5rem;
+  left: -2rem;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.quote-author {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .quote-block {
+    padding: 2rem 1.5rem;
+  }
+  .quote-text {
+    font-size: 1.2rem;
+  }
+  .quote-text::before {
+    left: -0.5rem;
+    top: -1rem;
+    font-size: 3rem;
+  }
+}
+
+/* ===========================
+   RESUME SECTION
+   =========================== */
+.resume-card {
+  background-color: var(--surface);
+  border: 3px solid var(--border-color);
+  box-shadow: 6px 6px 0px 0px var(--shadow-color);
+  max-width: 700px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.resume-card-header {
+  background-color: var(--accent-yellow);
+  padding: 0.75rem 1.25rem;
+  border-bottom: 3px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.resume-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+}
+
+.resume-dot--red { background-color: var(--accent-red); }
+.resume-dot--yellow { background-color: var(--accent-yellow); }
+.resume-dot--green { background-color: #22c55e; }
+
+.resume-card-title {
+  margin-left: auto;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #1a1a1a;
+}
+
+.resume-card-body {
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.resume-card-body p {
+  color: var(--secondary);
+  font-size: 1rem;
+  max-width: 500px;
+  margin: 0 auto 2rem auto;
+}
+
+/* ===========================
    HERO SECTION
    =========================== */
+@keyframes profileFloat {
+  0% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-15px); }
+  100% { transform: translateX(-50%) translateY(0); }
+}
+
+.profile-float {
+  animation: profileFloat 4s ease-in-out infinite;
+}
+
 .hero-section {
   background: linear-gradient(180deg, var(--background) 0%, var(--surface-alt) 100%);
   padding: 6rem 0 4rem 0;
@@ -1334,7 +1457,13 @@ body.hide-system-cursor * {
   }
 
   .footer-socials {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .resume-buttons {
+    flex-direction: row !important;
   }
 
   /* Contact mobile */

@@ -1,6 +1,7 @@
 "use client";
 
-import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaEnvelope, FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 
 export default function Footer() {
   return (
@@ -16,24 +17,45 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             className="neo-btn secondary footer-social-btn"
+            aria-label="Email"
           >
-            <FaEnvelope size={20} /> Email
+            <FaEnvelope size={20} />
           </a>
           <a
             href="https://www.linkedin.com/in/paras-bhegade/"
             target="_blank"
             rel="noopener noreferrer"
             className="neo-btn secondary footer-social-btn"
+            aria-label="LinkedIn"
           >
-            <FaLinkedin size={20} /> LinkedIn
+            <FaLinkedin size={20} />
           </a>
           <a
             href="https://github.com/ParasBhegade"
             target="_blank"
             rel="noopener noreferrer"
             className="neo-btn secondary footer-social-btn"
+            aria-label="GitHub"
           >
-            <FaGithub size={20} /> GitHub
+            <FaGithub size={20} />
+          </a>
+          <a
+            href="https://www.instagram.com/paras_bhegade/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="neo-btn secondary footer-social-btn"
+            aria-label="Instagram"
+          >
+            <FaInstagram size={20} />
+          </a>
+          <a
+            href="https://leetcode.com/u/EZIO_05/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="neo-btn secondary footer-social-btn"
+            aria-label="LeetCode"
+          >
+            <SiLeetcode size={20} />
           </a>
         </div>
       </div>
